@@ -18,6 +18,8 @@ public:
 
     void setStatus(bool status);
     void clearFields();
+    void checkWinner(int player);
+    void updateScore();
 
 private slots:
     void on_btn_start_clicked();
@@ -46,6 +48,7 @@ private:
     Ui::JogoDaVelha *ui;
     int AIScore = 0;
     int userScore = 0;
+    bool winner = false;
     QVector<int> fieldsSelected;
     QString userClickStyle = "QPushButton{border: 1px solid green; background-color: white;}";
     QString btnStandardStyle = "QPushButton{border: 1px solid darkgray; background-color: lightgray;}";
