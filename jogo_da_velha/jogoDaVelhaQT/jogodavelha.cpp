@@ -15,6 +15,47 @@ JogoDaVelha::~JogoDaVelha()
     delete ui;
 }
 
+void JogoDaVelha::AI()
+{
+    if(!winner)
+    {
+        QVector<int> nonSelectedFields;
+        for(int i = 0; i < 9; i++)
+        {
+            if(fieldsSelected[i] == 0)
+            {
+                nonSelectedFields.push_back(i);
+            }
+        }
+
+        int selected = nonSelectedFields[0];
+        fieldsSelected[selected] = 2;
+        if(selected == 0)
+        {
+            ui->btn_field1->setText("O");
+        }
+        else if(selected == 1)
+            ui->btn_field2->setText("O");
+        else if(selected == 2)
+                ui->btn_field3->setText("O");
+        else if(selected == 3)
+                ui->btn_field4->setText("O");
+        else if(selected == 4)
+                ui->btn_field5->setText("O");
+        else if(selected == 5)
+                ui->btn_field6->setText("O");
+        else if(selected == 6)
+                ui->btn_field7->setText("O");
+        else if(selected == 7)
+                ui->btn_field8->setText("O");
+        else if(selected == 8)
+                ui->btn_field9->setText("O");
+        checkWinner(2);
+        if(!winner)
+            setStatus(true);
+    }
+}
+
 void JogoDaVelha::checkWinner(int player)
 {
     // checking diagonals
@@ -52,7 +93,21 @@ void JogoDaVelha::checkWinner(int player)
             AIScore++;
         }
         updateScore();
+    } else if(isTie())
+    {
+        ui->lb_result->setText("Empate");
+        winner = true;
     }
+}
+
+bool JogoDaVelha::isTie()
+{
+    for(int i = 0; i < 9; i++)
+    {
+        if(fieldsSelected[i] == 0)
+            return false;
+    }
+    return true;
 }
 
 void JogoDaVelha::updateScore()
@@ -100,7 +155,6 @@ void JogoDaVelha::clearFields()
 {
     ui->lb_result->setText("");
 
-    fieldsSelected.clear();
     fieldsSelected.resize(9);
     fieldsSelected.fill(0);
     ui->btn_field1->setText("");
@@ -145,6 +199,7 @@ void JogoDaVelha::on_btn_field1_clicked()
     fieldsSelected[0] = 1;
     setStatus(false);
     checkWinner(1);
+    AI();
 }
 
 void JogoDaVelha::on_btn_field2_clicked()
@@ -154,6 +209,7 @@ void JogoDaVelha::on_btn_field2_clicked()
     fieldsSelected[1] = 1;
     setStatus(false);
     checkWinner(1);
+    AI();
 }
 
 void JogoDaVelha::on_btn_field3_clicked()
@@ -163,6 +219,7 @@ void JogoDaVelha::on_btn_field3_clicked()
     fieldsSelected[2] = 1;
     setStatus(false);
     checkWinner(1);
+    AI();
 }
 
 void JogoDaVelha::on_btn_field4_clicked()
@@ -172,6 +229,7 @@ void JogoDaVelha::on_btn_field4_clicked()
     fieldsSelected[3] = 1;
     setStatus(false);
     checkWinner(1);
+    AI();
 }
 
 void JogoDaVelha::on_btn_field5_clicked()
@@ -181,6 +239,7 @@ void JogoDaVelha::on_btn_field5_clicked()
     fieldsSelected[4] = 1;
     setStatus(false);
     checkWinner(1);
+    AI();
 }
 
 void JogoDaVelha::on_btn_field6_clicked()
@@ -190,6 +249,7 @@ void JogoDaVelha::on_btn_field6_clicked()
     fieldsSelected[5] = 1;
     setStatus(false);
     checkWinner(1);
+    AI();
 }
 
 void JogoDaVelha::on_btn_field7_clicked()
@@ -199,6 +259,7 @@ void JogoDaVelha::on_btn_field7_clicked()
     fieldsSelected[6] = 1;
     setStatus(false);
     checkWinner(1);
+    AI();
 }
 
 void JogoDaVelha::on_btn_field8_clicked()
@@ -208,6 +269,7 @@ void JogoDaVelha::on_btn_field8_clicked()
     fieldsSelected[7] = 1;
     setStatus(false);
     checkWinner(1);
+    AI();
 }
 
 void JogoDaVelha::on_btn_field9_clicked()
@@ -217,9 +279,5 @@ void JogoDaVelha::on_btn_field9_clicked()
     fieldsSelected[8] = 1;
     setStatus(false);
     checkWinner(1);
-}
-
-void JogoDaVelha::on_pushButton_clicked()
-{
-    setStatus(true);
+    AI();
 }

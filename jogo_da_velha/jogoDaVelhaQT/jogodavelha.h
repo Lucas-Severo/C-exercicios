@@ -20,6 +20,8 @@ public:
     void clearFields();
     void checkWinner(int player);
     void updateScore();
+    void AI();
+    bool isTie();
 
 private slots:
     void on_btn_start_clicked();
@@ -41,8 +43,6 @@ private slots:
     void on_btn_field8_clicked();
 
     void on_btn_field9_clicked();
-
-    void on_pushButton_clicked();
 
 private:
     Ui::JogoDaVelha *ui;
