@@ -45,5 +45,7 @@ private:
     int AIScore = 0;
     int userScore = 0;
     QVector<int> fieldsSelected;
+    QString userClickStyle = "QPushButton{border: 1px solid green; background-color: white;}";
+    QString btnStandardStyle = "QPushButton{border: 1px solid darkgray; background-color: lightgray;}";
 };
 #endif // JOGODAVELHA_H

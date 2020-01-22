@@ -35,15 +35,31 @@ void JogoDaVelha::clearFields()
     fieldsSelected.resize(9);
     fieldsSelected.fill(0);
     ui->btn_field1->setText("");
-    ui->btn_field2->setText("");
-    ui->btn_field3->setText("");
-    ui->btn_field4->setText("");
-    ui->btn_field5->setText("");
-    ui->btn_field6->setText("");
-    ui->btn_field7->setText("");
-    ui->btn_field8->setText("");
-    ui->btn_field9->setText("");
+    ui->btn_field1->setStyleSheet(btnStandardStyle);
 
+    ui->btn_field2->setText("");
+    ui->btn_field2->setStyleSheet(btnStandardStyle);
+
+    ui->btn_field3->setText("");
+    ui->btn_field3->setStyleSheet(btnStandardStyle);
+
+    ui->btn_field4->setText("");
+    ui->btn_field4->setStyleSheet(btnStandardStyle);
+
+    ui->btn_field5->setText("");
+    ui->btn_field5->setStyleSheet(btnStandardStyle);
+
+    ui->btn_field6->setText("");
+    ui->btn_field6->setStyleSheet(btnStandardStyle);
+
+    ui->btn_field7->setText("");
+    ui->btn_field7->setStyleSheet(btnStandardStyle);
+
+    ui->btn_field8->setText("");
+    ui->btn_field8->setStyleSheet(btnStandardStyle);
+
+    ui->btn_field9->setText("");
+    ui->btn_field9->setStyleSheet(btnStandardStyle);
 }
 
 void JogoDaVelha::on_btn_start_clicked()
@@ -55,44 +71,53 @@ void JogoDaVelha::on_btn_start_clicked()
 void JogoDaVelha::on_btn_field1_clicked()
 {
     ui->btn_field1->setText("X");
+    ui->btn_field1->setStyleSheet(userClickStyle);
 }
 
 void JogoDaVelha::on_btn_field2_clicked()
 {
     ui->btn_field2->setText("X");
+    ui->btn_field2->setStyleSheet(userClickStyle);
 }
 
 void JogoDaVelha::on_btn_field3_clicked()
 {
     ui->btn_field3->setText("X");
+    ui->btn_field3->setStyleSheet(userClickStyle);
 }
 
 void JogoDaVelha::on_btn_field4_clicked()
 {
     ui->btn_field4->setText("X");
+    ui->btn_field4->setStyleSheet(userClickStyle);
 }
 
 void JogoDaVelha::on_btn_field5_clicked()
 {
     ui->btn_field5->setText("X");
+    ui->btn_field5->setStyleSheet(userClickStyle);
 }
 
 void JogoDaVelha::on_btn_field6_clicked()
 {
     ui->btn_field6->setText("X");
+    ui->btn_field6->setStyleSheet(userClickStyle);
 }
 
 void JogoDaVelha::on_btn_field7_clicked()
 {
     ui->btn_field7->setText("X");
+    ui->btn_field7->setStyleSheet(userClickStyle);
 }
 
 void JogoDaVelha::on_btn_field8_clicked()
 {
     ui->btn_field8->setText("X");
+    ui->btn_field8->setStyleSheet(userClickStyle);
 }
 
 void JogoDaVelha::on_btn_field9_clicked()
 {
     ui->btn_field9->setText("X");
+    ui->btn_field9->setStyleSheet(userClickStyle);
 }
