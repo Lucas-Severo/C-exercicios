@@ -40,6 +40,8 @@ private slots:
 
     void on_btn_field9_clicked();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::JogoDaVelha *ui;
     int AIScore = 0;
