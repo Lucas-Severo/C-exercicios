@@ -6,7 +6,7 @@ JogoDaVelha::JogoDaVelha(QWidget *parent)
     , ui(new Ui::JogoDaVelha)
 {
     ui->setupUi(this);
-
+    srand (time(NULL));
     setStatus(false);
 }
 
@@ -28,28 +28,55 @@ void JogoDaVelha::AI()
             }
         }
 
-        int selected = nonSelectedFields[0];
+        int index = rand() % (nonSelectedFields.size()-1);
+
+        int selected = nonSelectedFields[index];
         fieldsSelected[selected] = 2;
         if(selected == 0)
         {
             ui->btn_field1->setText("O");
+            ui->btn_field1->setStyleSheet(aiClickStyle);
         }
         else if(selected == 1)
+        {
             ui->btn_field2->setText("O");
+            ui->btn_field2->setStyleSheet(aiClickStyle);
+        }
         else if(selected == 2)
-                ui->btn_field3->setText("O");
+        {
+            ui->btn_field3->setText("O");
+            ui->btn_field3->setStyleSheet(aiClickStyle);
+        }
         else if(selected == 3)
-                ui->btn_field4->setText("O");
+        {
+            ui->btn_field4->setText("O");
+            ui->btn_field4->setStyleSheet(aiClickStyle);
+        }
         else if(selected == 4)
-                ui->btn_field5->setText("O");
+        {
+            ui->btn_field5->setText("O");
+            ui->btn_field5->setStyleSheet(aiClickStyle);
+        }
         else if(selected == 5)
-                ui->btn_field6->setText("O");
+        {
+            ui->btn_field6->setText("O");
+            ui->btn_field6->setStyleSheet(aiClickStyle);
+        }
         else if(selected == 6)
-                ui->btn_field7->setText("O");
+        {
+            ui->btn_field7->setText("O");
+            ui->btn_field7->setStyleSheet(aiClickStyle);
+        }
         else if(selected == 7)
-                ui->btn_field8->setText("O");
+        {
+            ui->btn_field8->setText("O");
+            ui->btn_field8->setStyleSheet(aiClickStyle);
+        }
         else if(selected == 8)
-                ui->btn_field9->setText("O");
+        {
+            ui->btn_field8->setText("O");
+            ui->btn_field8->setStyleSheet(aiClickStyle);
+        }
         checkWinner(2);
         if(!winner)
             setStatus(true);
@@ -280,4 +307,11 @@ void JogoDaVelha::on_btn_field9_clicked()
     setStatus(false);
     checkWinner(1);
     AI();
+}
+
+void JogoDaVelha::on_btn_reset_clicked()
+{
+    on_btn_start_clicked();
+    userScore = AIScore = 0;
+    updateScore();
 }
