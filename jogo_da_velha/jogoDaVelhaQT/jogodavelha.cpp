@@ -1,5 +1,6 @@
 #include "jogodavelha.h"
 #include "ui_jogodavelha.h"
+#include <QDebug>
 
 JogoDaVelha::JogoDaVelha(QWidget *parent)
     : QMainWindow(parent)
@@ -314,4 +315,10 @@ void JogoDaVelha::on_btn_reset_clicked()
     on_btn_start_clicked();
     userScore = AIScore = 0;
     updateScore();
+}
+
+void JogoDaVelha::on_actionbackground_triggered()
+{
+    QColor color = QColorDialog::getColor();
+    ui->centralwidget->setStyleSheet("background-color: " + color.name());
 }

@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QVector>
 #include <random>
+#include <QColorDialog>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class JogoDaVelha; }
@@ -47,6 +48,8 @@ private slots:
 
     void on_btn_reset_clicked();
 
+    void on_actionbackground_triggered();
+
 private:
     Ui::JogoDaVelha *ui;
     int AIScore = 0;
@@ -56,5 +59,6 @@ private:
     QString userClickStyle = "QPushButton{border: 1px solid green; background-color: white; color: green;}";
     QString aiClickStyle = "QPushButton{border: 1px solid red; background-color: white; color: red;}";
     QString btnStandardStyle = "QPushButton{border: 1px solid darkgray; background-color: lightgray;}";
+    QString backgroundStyle = "#fff";
 };
 #endif // JOGODAVELHA_H
